@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_replace_first.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 22:52:17 by rorousse          #+#    #+#             */
-/*   Updated: 2015/12/17 22:54:56 by rorousse         ###   ########.fr       */
+/*   Created: 2015/12/01 06:25:52 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/05 19:59:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_replace_first(char *str, char c, char r)
+#include "libft.h"
+
+void	ft_putnbr_unsigned(unsigned int n)
 {
-	while (str)
-	{
-		if (*str == c)
-		{
-			*str = r;
-			return;
-		}
-		str++;
-	}
+	char c;
+
+	c = (n % 10) + 48;
+	if (n > 9)
+		ft_putnbr_unsigned(n / 10);
+	write(1, &c, 1);
 }

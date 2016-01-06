@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/05 20:34:47 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/05 18:25:14 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/05 18:48:01 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
-#include "ft_printf.h"
 
-void		ft_printf(const char *restrict format, ...)
+void	ft_print_hex(unsigned long long int nombre)
 {
-	va_list		ap;
+	char	c;
 
-	va_start(ap, format);
-	while (*format)
+	if (nombre != 0)
 	{
-		if (*format == '%')
-		{
-			format++;
-			ft_gestion_params(&ap,*format);
-		}
-		else
-			write(1, format, 1);
-		format++;
+		ft_print_hex(nombre / 16);
+		if (nombre % 16 < 10)
+			c = (nombre % 16) + '0';
+		else if (nombre % 16 == 10)
+			c = 'a';
+		else if (nombre % 16 == 11)
+			c = 'b';
+		else if (nombre % 16 == 12)
+			c = 'c';
+		else if (nombre % 16 == 13)
+			c = 'd';
+		else if (nombre % 16 == 14)
+			c = 'e';
+		else if (nombre % 16 == 15)
+			c = 'f';
+		write(1, &c, 1);
 	}
-	va_end(ap);
 }

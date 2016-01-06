@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2015/12/14 09:49:11 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/06 12:07:34 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,9 @@ extern size_t		ft_lstcount(t_list *lst);
 extern int			ft_tabcount(char **tab);
 extern void			ft_tabtri(int *tab, int size);
 extern int			ft_strrep(char *str, char c);
+extern void			ft_print_hex(unsigned long long int nombre);
+extern void			ft_putnbr_unsigned(unsigned int n);
+extern void			ft_print_octal(int nb);
+extern void			ft_putnbr_double(double nombre);
 
 #endif

@@ -6,14 +6,23 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:23:21 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/04 23:05:11 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/05 22:35:36 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-	ft_printf("Hello world, %s mains %d!","il fait beau",68);
+	char *chaine;
+	int bonbons = 28;
+	char c = 'z';
+
+	chaine = (char*)malloc(6*sizeof(char));
+	printf("on a %d et %d\n",(int)sizeof(int),(int)sizeof(unsigned int));
+	ft_printf("le pointeur est %p et j'ai %d bonbons, %o en octal et mon char est %c\n",chaine,bonbons,bonbons,c);
+	free(chaine);
 	return (0);
 }

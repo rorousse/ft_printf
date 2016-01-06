@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_octal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/05 20:34:47 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/05 22:29:09 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/05 22:33:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
 #include <unistd.h>
-#include "ft_printf.h"
 
-void		ft_printf(const char *restrict format, ...)
+void	ft_print_octal(int nb)
 {
-	va_list		ap;
+	char	c;
 
-	va_start(ap, format);
-	while (*format)
+	if (nb != 0)
 	{
-		if (*format == '%')
-		{
-			format++;
-			ft_gestion_params(&ap,*format);
-		}
-		else
-			write(1, format, 1);
-		format++;
+		ft_print_octal(nb / 8);
+		c = (nb % 8) + '0';
+		write(1, &c, 1);
 	}
-	va_end(ap);
 }
