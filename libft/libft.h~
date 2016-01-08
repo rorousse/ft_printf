@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/08 10:46:37 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/07 21:21:06 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,5 @@ extern size_t		ft_lstcount(t_list *lst);
 extern int			ft_tabcount(char **tab);
 extern void			ft_tabtri(int *tab, int size);
 extern int			ft_strrep(char *str, char c);
-extern char			*ft_itoa_base(int n, int base);
 
 #endif

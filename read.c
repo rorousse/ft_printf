@@ -1,23 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 06:25:52 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/05 19:59:09 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/06 15:34:15 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/06 15:54:47 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr_unsigned(unsigned int n)
+void	read_var(char *str, t_params *params, char flag, char *str)
 {
-	char c;
 
-	c = (n % 10) + 48;
-	if (n > 9)
-		ft_putnbr_unsigned(n / 10);
-	write(1, &c, 1);
-}

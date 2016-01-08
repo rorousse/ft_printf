@@ -15,6 +15,15 @@
 
 #include <stdarg.h>
 
+typedef struct s_params
+{
+  char	*flag;
+  char	*precision;
+  char	*largeur;
+  char  *modificateur;
+  char	*type;
+}		t_params;
+
 void		ft_printf(const char * restrict format, ...);
 void		ft_gestion_params(va_list *ap, char flag);
 

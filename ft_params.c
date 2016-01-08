@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/06 12:18:17 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/06 20:20:04 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,32 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void		ft_gestion_params(va_list *ap, char flag)
+t_params	*init_params()
+{
+	t_params *new;
+	if (!(new = (t_params*)malloc(sizeof(t_params))))
+		return (NULL);
+	if (!(new->flag = (char*)malloc(2 * sizeof(char))))
+		return (NULL);
+	if (!(new->precision = (char*)malloc(3 *sizeof(char))))
+		return (NULL);
+	if (!(new->largeur = (char*)malloc(3 *sizeof(char))))
+		return (NULL);
+	if (!(new->modificateur = (char*)malloc(2 *sizeof(char))))
+		return (NULL);
+	if (!(new->type = (char*)malloc(2 *sizeof(char))))
+		return (NULL);
+	return (new);
+}
+	
+void		ft_gestion_params(va_list *ap, char **dst, char flag)
 {
 	if (flag == 's')
-		ft_putstr(va_arg(*ap, char*));
+		*dst = va_arg(*ap, char*));
 	else if (flag == 'd' || flag == 'i')
-		ft_putnbr(va_arg(*ap,int));
+		*dst = ft_atoi((va_arg(*ap,int));
 	else if (flag == 'c')
-		ft_putchar(va_arg(*ap,int));
+		**dst = (va_arg(*ap,int));
 	else if (flag == 'p')
 	{
 		write(1,"0x",2);

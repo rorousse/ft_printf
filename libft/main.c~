@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_sci.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 11:56:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/06 11:56:01 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/08 10:58:24 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/08 11:02:25 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putnbr_sci(double nb)
+int main()
 {
-	while ((nb % 1) != 0)
-	{
-		nb = nb * 10;
+	char *str;
+	str = ft_itoa_base(26,8);
+	ft_putstr(str);
+	free(str);
+	return (0);
+}

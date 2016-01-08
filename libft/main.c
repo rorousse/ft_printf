@@ -1,17 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_modulo_double.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 12:14:43 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/06 12:14:43 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/08 10:58:24 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/08 11:02:42 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	modulo_double(double a, double b)
-{
-	int res;
+#include "libft.h"
 
-	
+int main()
+{
+	char *str;
+	str = ft_itoa_base(-26,8);
+	ft_putstr(str);
+	free(str);
+	return (0);
+}
