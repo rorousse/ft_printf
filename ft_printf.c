@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/05 20:34:47 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/10 13:44:07 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ void		ft_printf(const char *restrict format, ...)
 	{
 		if (*format == '%')
 		{
-			format++;
-			ft_gestion_params(&ap,*format);
+			lecture(format, &ap);
 		}
 		else
 			write(1, format, 1);

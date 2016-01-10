@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/05 22:28:35 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/10 13:51:52 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void		ft_gestion_params(va_list *ap, char flag)
+void		ft_gestion_params(va_list *ap, char **dst, char flag)
 {
 	if (flag == 's')
-		ft_putstr(va_arg(*ap, char*));
+		*dst = va_arg(*ap, char*);
 	else if (flag == 'd' || flag == 'i')
-		ft_putnbr(va_arg(*ap,int));
+		*dst = ft_atoi(va_arg(*ap,int));
 	else if (flag == 'c')
-		ft_putchar(va_arg(*ap,int));
-	else if (flag == 'p')
-	{
-		write(1,"0x",2);
-		ft_print_hex(va_arg(*ap,unsigned long long int));
-	}
+		**dst = (va_arg(*ap,int));
+	else if (ft_strchr("pxX", flag) != NULL)
+		*dst = ft_itoa_base(va_arg(*ap,unsigned long long int),16);
 	else if (flag == 'u')
-		ft_putnbr_unsigned(va_arg(*ap,unsigned int));
+		*dst = ft_itoa(va_arg(*ap,unsigned int));
 	else if (flag == 'o')
-		ft_print_octal(va_arg(*ap,int));
+		*dst = ft_itoa_base(va_arg(*ap,int),8);
 }

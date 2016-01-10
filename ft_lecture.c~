@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lecture.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/08 10:58:24 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/08 11:02:42 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/10 12:42:20 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/10 13:50:37 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
+#include "ft_printf.h"
+#include <stdlib.h>
+#include <unistd.h>
 
-int main()
+void	lecture(char *str, va_list *ap)
 {
-	char *str;
-	str = ft_itoa_base(-26,8);
-	ft_putstr(str);
-	free(str);
-	return (0);
+	char	**dst;
+	int		i;
+
+	i = 0;
+	dst = (char**)malloc(sizeof(char*));
+	while (str[i])
+	{
+		i++;
+		if (ft_strchr("diouxXfeEgGcsp%", str[i]) != NULL)
+		{
+			ft_gestion_params(ap, dst, str[i]);
+		}
+	}
+	write(1,*dst,ft_strlen(*dst));
+	free(*dst);
+	free(dst);
 }
+	
