@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   unsigned_itoa_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/12 13:56:48 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/12 14:06:16 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	det_size(int n, int base)
+static int	det_size(unsigned long long int n, int base)
 {
 	int		count;
 
@@ -25,7 +25,7 @@ static int	det_size(int n, int base)
 	return (count);
 }
 
-static void	ft_calcul_rec(int n, int base, char *str)
+static void	ft_calcul_rec(unsigned long long int n, int base, char *str)
 {
 	if (n != 0)
 	{
@@ -39,7 +39,7 @@ static void	ft_calcul_rec(int n, int base, char *str)
 	}
 }
 
-char		*ft_itoa_base(int n, int base)
+char		*unsigned_itoa_base(unsigned long long int n, int base)
 {
 	int		size;
 	char	*str;
@@ -47,12 +47,6 @@ char		*ft_itoa_base(int n, int base)
 	size = det_size(n, base);
 	str = (char*)malloc((size + 2) * sizeof(char));
 	ft_bzero(str, size + 2);
-	if (n >= 0)
-		ft_calcul_rec(n, base, str);
-	else
-	{
-		*str = '-';
-		ft_calcul_rec((n * -1), base, str);
-	}
+	ft_calcul_rec(n, base, str);
 	return (str);
 }

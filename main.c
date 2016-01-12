@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:23:21 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/06 15:31:47 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/12 13:50:43 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@
 
 int main()
 {
-  //char *chaine;
-       	double bonbons = 28.12345678901234567890;
-	//	char c = 'z';
-	//double nb = 729.151;
+  char *chaine;
+       	int bonbons = 28;
+		char c = 'z';
 
-	//	chaine = (char*)malloc(6*sizeof(char));
-	printf("%.12f",bonbons);
-	//	ft_printf("le pointeur est %p et j'ai %d bonbons, %o en octal et mon char est %c et nb vaut %f\n",chaine,bonbons,bonbons,c,nb);
-	//	free(chaine);
+		chaine = (char*)malloc(6*sizeof(char));
+		ft_printf("le pointeur est %p et j'ai %d bonbons, %o en octal et mon char est %c\n",chaine,bonbons,bonbons,c);
+		free(chaine);
 	return (0);
 }

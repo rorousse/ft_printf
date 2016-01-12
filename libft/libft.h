@@ -92,5 +92,6 @@ extern int			ft_tabcount(char **tab);
 extern void			ft_tabtri(int *tab, int size);
 extern int			ft_strrep(char *str, char c);
 extern char			*ft_itoa_base(int n, int base);
+extern char			*unsigned_itoa_base(unsigned long long int n, int base);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/10 13:54:21 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/12 13:54:02 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 #include <stdarg.h>
+#include <stdio.h>
 
 void		lecture(const char *restrict str, va_list *ap);
 void		ft_printf(const char * restrict format, ...);
