@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 13:42:50 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/17 15:35:52 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/17 16:02:24 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void		ft_uni_putchar(wchar_t c)
 	free(mask[3]);
 	while(splitted[taille] != NULL)
 	{
-		printf("plop\n");
 		free(splitted[taille]);
 		taille++;
 	}

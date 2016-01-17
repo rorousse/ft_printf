@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/15 02:07:25 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/17 17:53:23 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ void		ft_insert_str(char **dst, char *insertion)
 	free(temp);
 }
 	
-void		ft_alternate_form(const char *restrict str, char *dst)
+void		ft_alternate_form(const char *restrict str, var_t *myvar)
 {
-	
-	
+	if (myvar->type == 'o')
+		ft_insert_str(&(myvar->data),"0");
+	else if (myvar->type == 'x')
+		ft_insert_str(&(myvar->data),"0x");
+	else if (myvar->type == 'X')
+		ft_insert_str(&(myvar->data),"0X");
+	return ;	
+}
