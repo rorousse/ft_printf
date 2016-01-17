@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lecture.c                                       :+:      :+:    :+:   */
+/*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/10 12:42:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/14 16:05:01 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/15 02:07:25 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 #include <stdlib.h>
-#include <unistd.h>
+#include "libft/libft.h"
 
-void	lecture(const char *restrict str, va_list *ap)
+
+void		ft_insert_str(char **dst, char *insertion)
 {
-	char	*dst;
-	int		i;
+	char	*temp;
 
-	i = 0;
-	while (str[i] && (ft_strchr("diouxXfeEgGcsp",str[i]) == NULL))
-	{
-		i++;
-		if (ft_strchr("diouxXfeEgGcsp%", str[i]) != NULL)
-		{
-			ft_gestion_params(ap, &dst, str[i]);
-			ft_gestion_flags(dst,str);
-		}
-	}
-	write(1,dst,ft_strlen(dst));
+	temp = (char*)malloc((ft_strlen(*dst) + 1) * sizeof(char));
+	ft_strcpy(temp, *dst);
+	free(*dst);
+	*dst = ft_strjoin(insertion, temp);
+	free(temp);
 }
+	
+void		ft_alternate_form(const char *restrict str, char *dst)
+{
+	
 	

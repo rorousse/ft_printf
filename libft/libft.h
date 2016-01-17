@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/08 10:46:37 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/17 13:59:15 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <wchar.h>
 # include <limits.h>
 
 typedef struct		s_list
@@ -93,5 +94,6 @@ extern void			ft_tabtri(int *tab, int size);
 extern int			ft_strrep(char *str, char c);
 extern char			*ft_itoa_base(int n, int base);
 extern char			*unsigned_itoa_base(unsigned long long int n, int base);
+extern void			ft_uni_putchar(wchar_t c);
 
 #endif
