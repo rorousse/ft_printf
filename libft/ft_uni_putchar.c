@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 13:42:50 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/17 14:41:18 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/17 15:35:52 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	ft_remplacement(char *mask, char *bin)
 	{
 		if (mask[i] == 'x')
 		{
-			printf("on a remplace %c par %c\n",mask[i],bin[y]);
 			mask[i] = bin[y];
 			y--;
 		}
@@ -44,7 +43,7 @@ void		ft_uni_putchar(wchar_t c)
 	char	*mask[4];
 	char	**splitted;
 	int		taille;
-	int		octets;
+	int		octets[4];
 
 	mask[0] = ft_strdup("0xxxxxxx");
 	mask[1] = ft_strdup("110xxxxx 10xxxxxx");
@@ -52,31 +51,36 @@ void		ft_uni_putchar(wchar_t c)
 	mask[3] = ft_strdup("11110xxx 10xxxxxx 10xxxxxx 10xxxxxx");
 	bin = unsigned_itoa_base((unsigned long long int)c, 2);
 	taille = ft_strlen(bin);
-	printf("taille est %d\n",taille);
 	if (taille <= 7)
 	{
 		ft_remplacement(mask[0],bin);
-		splitted = ft_strsplit(mask[0]);
+		splitted = ft_strsplit(mask[0], ' ');
 	}
 	else if (taille <= 11)
 	{
 		ft_remplacement(mask[1], bin);
-		splitted = ft_strsplit(mask[1]);
+		splitted = ft_strsplit(mask[1], ' ');
 	}
 	else if (taille <= 16)
 	{
 		ft_remplacement(mask[2],bin);
-		splitted = ft_strsplit(mask[2]);
+		splitted = ft_strsplit(mask[2], ' ');
 	}
 	else
 	{
 		ft_remplacement(mask[3],bin);
-		splitted = ft_strsplit(mask[3]);
+		splitted = ft_strsplit(mask[3], ' ');
 	}
 	taille = 0;
 	while(splitted[taille] != NULL)
 	{
-		;
+		octets[taille] = ft_atoi_base(splitted[taille],2);
+		taille++;
+	}
+	taille = 0;
+	while(taille < 2)
+	{
+		write(1,&octets[taille],1);
 		taille++;
 	}
 	free(bin);
@@ -84,10 +88,11 @@ void		ft_uni_putchar(wchar_t c)
 	free(mask[1]);
 	free(mask[2]);
 	free(mask[3]);
-	while(*splitted != NULL)
+	while(splitted[taille] != NULL)
 	{
-		free(*splitted);
-		*splitted++;
+		printf("plop\n");
+		free(splitted[taille]);
+		taille++;
 	}
 	free(splitted);
 }
