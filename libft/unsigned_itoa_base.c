@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 16:46:05 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 21:10:34 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,18 @@ char		*unsigned_itoa_base(unsigned long long int n, int base)
 	int		size;
 	char	*str;
 
-	size = det_size(n, base);
-	str = (char*)malloc((size + 2) * sizeof(char));
-	ft_bzero(str, size + 2);
-	ft_calcul_rec(n, base, str);
+	if (n == 0)
+	{
+		str = (char*)malloc(2 * sizeof(char));
+		str[0] = '0';
+		str[1] = '\0';
+	}
+	else
+	{
+		size = det_size(n, base);
+		str = (char*)malloc((size + 2) * sizeof(char));
+		ft_bzero(str, size + 2);
+		ft_calcul_rec(n, base, str);
+	}
 	return (str);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   short_short_itoa_base.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 21:45:38 by rorousse         ###   ########.fr       */
+/*   Created: 2016/01/18 21:57:15 by rorousse          #+#    #+#             */
+/*   Updated: 2016/01/18 21:58:02 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa_base(int n, int base)
+char		*ft_itoa_base(short short int n, int base)
 {
 	unsigned long long int	nbis;
 	char					*str;

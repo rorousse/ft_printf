@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 16:33:57 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 22:49:56 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void ft_largeur(var_t *myvar, int nb)
 	{
 		while (nb > taille)
 		{
-			ft_insert_str(&(myvar->data)," ");
+			if (myvar->completion == 'r')
+				ft_insert_str(&(myvar->data)," ");
+			else
+				ft_insert_end(&(myvar->data)," ");
 			nb--;
 		}
 	}
@@ -43,7 +46,10 @@ void ft_largeur_comp(var_t *myvar, int nb)
 	{
 		while (nb > taille)
 		{
-			ft_insert_str(&(myvar->data),"0");
+			if (myvar->completion == 'r')
+				ft_insert_str(&(myvar->data),"0");
+			else
+				ft_insert_end(&(myvar->data),"0");
 			nb--;
 		}
 	}

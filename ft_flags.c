@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 15:18:54 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 22:38:38 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,18 @@ void		ft_insert_str(char **dst, char *insertion)
 	*dst = ft_strjoin(insertion, temp);
 	free(temp);
 }
-	
+
+void		ft_insert_end(char **dst, char *insertion)
+{
+	char    *temp;
+
+	temp = (char*)malloc((ft_strlen(*dst) + 1) * sizeof(char));
+	ft_strcpy(temp, *dst);
+	free(*dst);
+	*dst = ft_strjoin(temp, insertion);
+	free(temp);
+}
+
 void		ft_alternate_form(var_t *myvar)
 {
 	if (myvar->type == 'o')

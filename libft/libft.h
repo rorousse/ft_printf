@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/17 15:20:52 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 22:08:53 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ extern int			ft_strrep(char *str, char c);
 extern char			*ft_itoa_base(int n, int base);
 extern char			*unsigned_itoa_base(unsigned long long int n, int base);
 extern void			ft_uni_putchar(wchar_t c);
-extern int			ft_atoi_base(const char *str, int base); 
+extern int			ft_atoi_base(const char *str, int base);
 
 #endif

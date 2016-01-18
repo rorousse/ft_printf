@@ -6,16 +6,17 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:23:21 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 16:42:37 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 23:07:50 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
-	ft_printf("%x",42);
+	ft_printf("%s","abc");
 	return (0);
 }
