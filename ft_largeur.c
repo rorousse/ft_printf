@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/17 18:39:36 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 16:33:57 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,45 @@
 
 void ft_largeur(var_t *myvar, int nb)
 {
-	return ;
+	int		taille;
+
+	taille = (int)ft_strlen(myvar->data);
+	if (nb == 0)
+		nb = 1;
+	if (nb > taille )
+	{
+		while (nb > taille)
+		{
+			ft_insert_str(&(myvar->data)," ");
+			nb--;
+		}
+	}
+	else
+		myvar->data[nb] = '\0';
 }
 
 void ft_largeur_comp(var_t *myvar, int nb)
 {
-	return ;
+	int		taille;
+
+	taille = (int)ft_strlen(myvar->data);
+	if (nb == 0)
+		nb = 1;
+	if (nb > taille )
+	{
+		while (nb > taille)
+		{
+			ft_insert_str(&(myvar->data),"0");
+			nb--;
+		}
+	}
+	else
+		myvar->data[taille] = '\0';
 }
 
 void ft_precision(var_t *myvar, int nb)
 {
-	return ;
+	ft_largeur(myvar, nb);
 }
 
 int		ft_extend(var_t *myvar, const char *restrict str)

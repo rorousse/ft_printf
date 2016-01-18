@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/12 14:06:16 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 16:46:05 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_calcul_rec(unsigned long long int n, int base, char *str)
 		if (n % base < 10)
 			*str = (n % base) + '0';
 		else
-			*str = (n % base) - 10 + 'A';
+			*str = (n % base) - 10 + 'a';
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/17 17:43:52 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/18 16:55:11 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,16 @@ void		ft_gestion_params(va_list *ap, var_t *myvar, char flag)
 		myvar->data[1] = '\0';
 	}
 	else if (ft_strchr("pxX", flag) != NULL)
+	{
 		myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
+		if (flag == 'X')
+			ft_toupper(myvar->data);
 	else if (flag == 'u')
 	  myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned int), 10);
 	else if (flag == 'o')
 		myvar->data = ft_itoa_base(va_arg(*ap,int),8);
+	else if (flag == '%')
+		myvar->data = ft_strdup("%");
 }
 
 void		ft_gestion_flags(var_t *myvar, const char *restrict str)
@@ -48,7 +53,7 @@ void		ft_gestion_flags(var_t *myvar, const char *restrict str)
 				ft_insert_str(&(myvar->data), "+");
 		}
 		else if(str[i] == '#')
-			ft_alternate_form(str,myvar);
+			ft_alternate_form(myvar);
 		i++;
 	}
 }
