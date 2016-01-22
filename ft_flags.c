@@ -6,14 +6,13 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 22:38:38 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/19 13:49:05 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 #include "libft/libft.h"
-
 
 void		ft_insert_str(char **dst, char *insertion)
 {
@@ -41,7 +40,7 @@ void		ft_alternate_form(var_t *myvar)
 {
 	if (myvar->type == 'o')
 		ft_insert_str(&(myvar->data),"0");
-	else if (myvar->type == 'x')
+	else if (myvar->type == 'x' && ft_strcmp(myvar->data,"0") != 0)
 		ft_insert_str(&(myvar->data),"0x");
 	else if (myvar->type == 'X')
 		ft_insert_str(&(myvar->data),"0X");

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 22:39:27 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/19 13:50:30 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ struct var_t
 {
 	char *data;
 	char type;
+	char *treatment;
 	char completion;
 };
 
@@ -36,7 +37,7 @@ void		ft_largeur(var_t *myvar, int nb);
 void		ft_largeur_comp(var_t *myvar, int nb);
 void		ft_precision(var_t *myvar, int nb);
 int			ft_extend(var_t *myvar, const char *restrict str);
-void		ft_detection_completion(var_t *myvar, const char *restrict str);
+void		ft_check_completion(var_t *myvar, const char *restrict str);
 void		ft_insert_end(char **dst, char *insertion);
 
 #endif

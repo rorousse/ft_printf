@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 16:07:01 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/19 12:19:58 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_printf(const char *restrict format, ...)
 		{
 			format++;
 			value = value + ft_lecture(format, &ap);
-			while (ft_strchr("diouxXfeEgGcsp%", *format) == NULL && *format)
+			while ((ft_strchr("-+ #.*hlL", *format) != NULL || ft_isdigit(*format)) && *format)
 				format++;
 		}
 		else

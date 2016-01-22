@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/18 22:49:56 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/19 13:46:04 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,19 @@ void ft_largeur_comp(var_t *myvar, int nb)
 
 void ft_precision(var_t *myvar, int nb)
 {
-	ft_largeur(myvar, nb);
+	int		i;
+
+	i = 0;
+	if (nb > 0)
+	{
+		while (myvar->data[i] && nb > 0)
+		{
+			if (ft_isdigit(myvar->data[i]))
+				nb--;
+			i++;
+		}
+		myvar->data[i] = '\0';
+	}
 }
 
 int		ft_extend(var_t *myvar, const char *restrict str)
