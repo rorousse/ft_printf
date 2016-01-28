@@ -6,9 +6,11 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 19:15:13 by rorousse          #+#    #+#             */
-/*   Updated: 2015/12/08 14:39:15 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/28 16:28:27 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

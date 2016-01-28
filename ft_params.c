@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/21 21:43:43 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/28 16:54:15 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,40 @@
 #include "libft/libft.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <inttypes.h>
 
 void		ft_check_treatment(var_t *myvar, const char *restrict str)
 {
 	int		i;
+	int		taille;
 
 	i = 0;
-	while (myvar->data[i])
+	taille = 0;
+	myvar->treatment = (char*)malloc(sizeof(char));
+	myvar->treatment[0] = '\0';
+	while (str[i] != myvar->type && str[i])
 	{
-		if (ft_strchr("hlL",str[i]) != NULL)
-		{
-			if (str[i + 1] == str[i])
-			{
-				myvar->treatment = (char*)malloc(3 *sizeof(char));
-				myvar->treatment[0] = str[i];
-				myvar->treatment[1] = str[i];
-				myvar->treatment[2] = '\0';
-			}
-			else
-			{
-				myvar->treatment = (char*)malloc(2 * sizeof(char));
-				myvar->treatment[0] = str[i];
-				myvar->treatment[1] = '\0';
-			}
-			return ;
-		}
+		if (ft_strchr("jhlL",str[i]))
+			taille++;
+		i++;
 	}
-	myvar->treatment = NULL;
+	i = 0;
+	if (taille > 0)
+	{
+		free(myvar->treatment);
+		myvar->treatment = (char*)malloc(taille * sizeof(char) + 1);
+		ft_bzero(myvar->treatment, taille + 1);
+	}
+	taille = 0;
+	while (str[i] != myvar->type && str[i])
+    {
+		if (ft_strchr("jhlL",str[i]))
+		{
+            myvar->treatment[taille] = str[i];
+			taille++;
+		}
+		i++;
+    }
 }
 		
 void		ft_check_completion(var_t *myvar, const char *restrict str)
@@ -73,12 +80,16 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
 	else if (ft_strchr("xX", myvar->type) != NULL)
 	{
-		if (myvar->treatment == NULL)
-			myvar->data = long_long_unsigned_itoa_base(va_arg(*ap,unsigned int),16);
-		else if(ft_strcmp(myvar->treatment,"l") == 0)
-			myvar->data = long_long_unsigned_itoa_base(va_arg(*ap,unsigned long int),16);
-		else if(ft_strcmp(myvar->treatment,"l") == 0)
-			myvar->data = long_long_unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
+		if (ft_strcmp(myvar->treatment,"l") == 0)
+			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long int),16);
+		else if (ft_strcmp(myvar->treatment,"ll") == 0)
+			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
+		else if (ft_strcmp(myvar->treatment,"j") == 0)
+            myvar->data = unsigned_itoa_base(va_arg(*ap,uintmax_t),16);
+		else
+		{
+            myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned int),16);
+		}
 		if (myvar->type == 'X')
 		{
 			while (myvar->data[i])

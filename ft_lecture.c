@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/19 14:40:33 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/28 16:56:44 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_lecture(const char *restrict str, va_list *ap)
 	var_t	myvar;
 
 	i = 0;
-	while ((ft_strchr("-+ #.*hlL", str[i]) != NULL || ft_isdigit(str[i])) && str[i])
+	while ((ft_strchr("-+ #.*hlLj", str[i]) != NULL || ft_isdigit(str[i])) && str[i])
 		i++;
 	myvar.type = str[i];
 	if (myvar.type == '\0')
@@ -28,13 +28,13 @@ int		ft_lecture(const char *restrict str, va_list *ap)
 		return (0);
 	}
 	ft_check_completion(&myvar, str);
+	ft_check_treatment(&myvar, str);
 	ft_gestion_params(ap, &myvar);
 	ft_gestion_flags(&myvar, str);
 	ft_extend(&myvar,str);
 	value = ft_strlen(myvar.data);
 	ft_putstr(myvar.data);
 	free(myvar.data);
-	if (myvar.treatment != NULL)
-		free(myvar.treatment);
+	free(myvar.treatment);
 	return (value);
 }

@@ -6,14 +6,14 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 21:35:45 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/21 21:35:49 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/01/28 16:50:10 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
-static int	det_size(unsigned int n, int base)
+static int	det_size(uintmax_t n, int base)
 {
 	int		count;
 
@@ -26,7 +26,7 @@ static int	det_size(unsigned int n, int base)
 	return (count);
 }
 
-static void	ft_calcul_rec(unsigned int n, int base, char *str)
+static void	ft_calcul_rec(uintmax_t n, int base, char *str)
 {
 	if (n != 0)
 	{
@@ -40,7 +40,7 @@ static void	ft_calcul_rec(unsigned int n, int base, char *str)
 	}
 }
 
-char		*unsigned_itoa_base(unsigned int n, int base)
+char		*unsigned_itoa_base(uintmax_t n, int base)
 {
 	int		size;
 	char	*str;
