@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 15:03:09 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/11 15:02:38 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char		*ft_itoa_base(intmax_t n, int base)
 		if (neg == 1)
 		{
 			str[0] = '-';
-			ft_calcul_rec(n, base, str + 1);
+			ft_calculc_rec(n, base, str + 1);
 		}
 		else
 			ft_calcul_rec(n, base, str);

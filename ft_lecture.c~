@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 14:50:11 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/11 14:28:39 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_lecture(const char *restrict str, va_list *ap)
 	var_t	myvar;
 
 	i = 0;
-	while ((ft_strchr("-+ #.*hlLjz", str[i]) != NULL || ft_isdigit(str[i])) && str[i])
+	while ((ft_strchr("-+ #.*hlLj", str[i]) != NULL || ft_isdigit(str[i])) && str[i])
 		i++;
 	myvar.type = str[i];
 	if (myvar.type == '\0')

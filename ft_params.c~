@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 14:49:53 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/11 14:47:28 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_check_treatment(var_t *myvar, const char *restrict str)
 	myvar->treatment[0] = '\0';
 	while (str[i] != myvar->type && str[i])
 	{
-		if (ft_strchr("jhlLz",str[i]))
+		if (ft_strchr("jhlL",str[i]))
 			taille++;
 		i++;
 	}
@@ -41,7 +41,7 @@ void		ft_check_treatment(var_t *myvar, const char *restrict str)
 	taille = 0;
 	while (str[i] != myvar->type && str[i])
     {
-		if (ft_strchr("jhlLz",str[i]))
+		if (ft_strchr("jhlL",str[i]))
 		{
             myvar->treatment[taille] = str[i];
 			taille++;
