@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 16:55:36 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:55:15 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		ft_insert_str(int pos, char **dst, char *insertion)
 
 	i = 0;
 	temp = ft_strnew(pos + 1);
-	temp2 = ft_strnew(ft_strlen(*dst) - pos + 1);
+	temp2 = ft_strnew(ft_strlen(dst) - pos + 1);
 	while (i < pos)
 	{
 		temp[i] = *dst[i];

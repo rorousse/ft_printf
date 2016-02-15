@@ -6,7 +6,7 @@
 #    By: rorousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/01 03:14:08 by rorousse          #+#    #+#              #
-#    Updated: 2016/02/15 14:42:49 by rorousse         ###   ########.fr        #
+#    Updated: 2016/02/15 14:42:34 by rorousse         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -26,8 +26,7 @@ $(NAME) : $(OBJ)
 	libtool -static -o $(NAME) $(NAME) $(LIBS)
 
 lib :
-	make -C libft/
-
+	make -c libft/
 $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 	gcc -Wall -Werror -Wextra -o $@ -c $<
 

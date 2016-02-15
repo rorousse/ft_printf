@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 11:45:28 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:01:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ int		ft_lecture(const char *restrict str, va_list *ap)
 	ft_check_treatment(&myvar, str);
 	ft_gestion_params(ap, &myvar);
 	ft_extend(&myvar,str);
+	ft_gestion_flags(&myvar, str);
+	ft_precision(&myvar);
 	if(myvar.flag_largeur == 1)
 		ft_largeur_comp(&myvar);
-	ft_gestion_flags(&myvar, str);
 	if(myvar.flag_largeur == 0)
 		ft_largeur(&myvar);
 	value = ft_strlen(myvar.data);

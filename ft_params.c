@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 11:59:00 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:44:22 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,10 @@ void		ft_gestion_flags(var_t *myvar, const char *restrict str)
 		if (str[i] == '+')
 		{
 			if (*(myvar->data) != '-')
-				ft_insert_str(&(myvar->data), "+");
+				ft_insert_str(0, &(myvar->data), "+");
 		}
-		else if(str[i] == '#')
-			ft_alternate_form(myvar);
+		else if(str[i] == '-')
+			myvar->completion = 'l';
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 11:46:56 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:56:05 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ void ft_largeur(var_t *myvar)
 
 	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
-	if (nb == 0)
-		nb = 1;
-	if (nb > (unsigned long long int)taille )
+	if (nb > (unsigned long long int)taille && !(myvar->type =='c' && *(myvar->data) == '\0'))
 	{
 		while (nb > (unsigned long long int)taille)
 		{
 			if (myvar->completion == 'r')
-				ft_insert_str(&(myvar->data)," ");
+				ft_insert_str(0,&(myvar->data)," ");
 			else
 				ft_insert_end(&(myvar->data)," ");
 			nb--;
@@ -46,12 +44,17 @@ void ft_largeur_comp(var_t *myvar)
         taille =  taille + 2;
 	if (nb == 0)
 		nb = 1;
-	if (nb > (unsigned long long int)taille )
+	if (nb > (unsigned long long int)taille)
 	{
 		while (nb > (unsigned long long int)taille)
 		{
 			if (myvar->completion == 'r')
-				ft_insert_str(&(myvar->data),"0");
+			{
+				if ((myvar->type == 'x' || myvar->type == 'X') && myvar->alternate == 1)
+					ft_insert_str(2,&(myvar->data), "0");
+				else
+					ft_insert_str(0,&(myvar->data),"0");
+			}
 			else
 				ft_insert_end(&(myvar->data),"0");
 			nb--;
@@ -61,19 +64,17 @@ void ft_largeur_comp(var_t *myvar)
 		myvar->data[taille] = '\0';
 }
 
-void ft_precision(var_t *myvar, int nb)
+void ft_precision(var_t *myvar)
 {
 	int		i;
+	int		nb;
 
+	nb = myvar->precision;
 	i = 0;
 	if (nb > 0)
 	{
-		while (myvar->data[i] && nb > 0)
-		{
-			if (ft_isdigit(myvar->data[i]))
-				nb--;
-			i++;
-		}
+		if (myvar->type == 's')
+			myvar->data[nb] = '\0';
 	}
 }
 

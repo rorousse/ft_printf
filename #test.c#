@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 21:23:21 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 16:47:41 by rorousse         ###   ########.fr       */
+/*   Created: 2016/02/15 16:25:04 by rorousse          #+#    #+#             */
+/*   Updated: 2016/02/15 16:25:04 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
-#include <stdio.h>
-#include <stdlib.h>
+void test(char **str)
+{
+	*str = malloc(6);
+}
 
 int main()
 {
-	printf("%10x",42);
+	int i;
+	char **str;
+
+	i = 0;
+	while (i < 100000)
+	{
+		test(str);
+	}
 	return (0);
 }
+		

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 14:47:28 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 16:02:58 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_check_treatment(var_t *myvar, const char *restrict str)
 	myvar->treatment[0] = '\0';
 	while (str[i] != myvar->type && str[i])
 	{
-		if (ft_strchr("jhlL",str[i]))
+		if (ft_strchr("jhlLz",str[i]))
 			taille++;
 		i++;
 	}
@@ -41,7 +41,7 @@ void		ft_check_treatment(var_t *myvar, const char *restrict str)
 	taille = 0;
 	while (str[i] != myvar->type && str[i])
     {
-		if (ft_strchr("jhlL",str[i]))
+		if (ft_strchr("jhlLz",str[i]))
 		{
             myvar->treatment[taille] = str[i];
 			taille++;
@@ -80,6 +80,8 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		myvar->data  = (char*)malloc(2 * sizeof(char));
 		myvar->data[0] = (va_arg(*ap,int));
 		myvar->data[1] = '\0';
+		if (myvar->data[0] == 0)
+			myvar->data[0] = '\0';
 	}
 	else if (myvar->type == 'p')
 		myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
@@ -114,6 +116,8 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		ft_bzero(myvar->data,2);
 		myvar->data[0] = myvar->type;
 	}
+	if (myvar->data == NULL)
+		myvar->data = ft_strdup("(null)");
 }
 
 void		ft_gestion_flags(var_t *myvar, const char *restrict str)
@@ -125,11 +129,11 @@ void		ft_gestion_flags(var_t *myvar, const char *restrict str)
 	{
 		if (str[i] == '+')
 		{
-			if (str[0] != '-')
+			if (*(myvar->data) != '-')
 				ft_insert_str(&(myvar->data), "+");
 		}
-		else if(str[i] == '#')
-			ft_alternate_form(myvar);
+		else if(str[i] == '-')
+			myvar->completion = 'l';
 		i++;
 	}
 }
