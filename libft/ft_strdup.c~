@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 20:10:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 09:52:23 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 09:52:12 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(char *s)
 	int		i;
 
 	i = 0;
-	if (s == NULL)
+	if (s = NULL)
 		return (NULL);
 	new = (char*)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (new == NULL)

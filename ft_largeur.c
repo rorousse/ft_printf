@@ -6,23 +6,25 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 10:43:23 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/15 11:46:56 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-void ft_largeur(var_t *myvar, int nb)
+void ft_largeur(var_t *myvar)
 {
-	int		taille;
+	int							taille;
+	unsigned long long int		nb;
 
+	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
 	if (nb == 0)
 		nb = 1;
-	if (nb > taille )
+	if (nb > (unsigned long long int)taille )
 	{
-		while (nb > taille)
+		while (nb > (unsigned long long int)taille)
 		{
 			if (myvar->completion == 'r')
 				ft_insert_str(&(myvar->data)," ");
@@ -33,16 +35,20 @@ void ft_largeur(var_t *myvar, int nb)
 	}
 }
 
-void ft_largeur_comp(var_t *myvar, int nb)
+void ft_largeur_comp(var_t *myvar)
 {
 	int		taille;
+	unsigned long long int		nb;
 
+	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
+	if ((myvar->type == 'x' || myvar->type == 'X') && myvar->alternate == 1)
+        taille =  taille + 2;
 	if (nb == 0)
 		nb = 1;
-	if (nb > taille )
+	if (nb > (unsigned long long int)taille )
 	{
-		while (nb > taille)
+		while (nb > (unsigned long long int)taille)
 		{
 			if (myvar->completion == 'r')
 				ft_insert_str(&(myvar->data),"0");
@@ -82,18 +88,21 @@ int		ft_extend(var_t *myvar, const char *restrict str)
 		{
 			i++;
 			if (ft_isdigit(str[i]) == 1)
-				ft_precision(myvar, ft_atoi(str + i));
+				myvar->precision = ft_atoi(str + i);
 			else
-				ft_precision(myvar,0);
+				myvar->precision = 0;
 			while (ft_isdigit(str[i]) == 1)
 				i++;
 		}
 		else if (ft_isdigit(str[i]) == 1)
 		{
 			if (str[i] == '0')
-				ft_largeur_comp(myvar, ft_atoi(str + i + 1));
+			{
+				myvar->flag_largeur = 1;
+				myvar->largeur = ft_atoi(str + i + 1);
+			}
 			else
-				ft_largeur(myvar, ft_atoi(str + i));
+				myvar->largeur = ft_atoi(str + i);
 			while (ft_isdigit(str[i]) == 1)
 				i++;
 		}
