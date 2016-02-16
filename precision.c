@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   precision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 21:23:21 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/16 16:36:50 by rorousse         ###   ########.fr       */
+/*   Created: 2016/02/16 16:13:18 by rorousse          #+#    #+#             */
+/*   Updated: 2016/02/16 16:30:46 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int main()
+void ft_precision(var_t *myvar)
 {
-	ft_printf("@moulitest: %#.x, %#.0x", 0, 0);
-	return (0);
+    int     i;
+    int     nb;
+
+    nb = myvar->precision;
+    i = 0;
+    if (nb >= 0 && myvar->type != '%')
+    {
+        if (myvar->type == 's')
+            myvar->data[nb] = '\0';
+		if (nb == 0)
+			myvar->data[0] = '\0';
+	 }
 }

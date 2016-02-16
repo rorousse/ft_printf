@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 16:56:05 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/16 16:13:08 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void ft_largeur(var_t *myvar)
 	{
 		while (nb > (unsigned long long int)taille)
 		{
-			if (myvar->completion == 'r')
+			if (myvar->completion == 'l')
 				ft_insert_str(0,&(myvar->data)," ");
+
 			else
 				ft_insert_end(&(myvar->data)," ");
 			nb--;
@@ -40,15 +41,13 @@ void ft_largeur_comp(var_t *myvar)
 
 	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
-	if ((myvar->type == 'x' || myvar->type == 'X') && myvar->alternate == 1)
-        taille =  taille + 2;
 	if (nb == 0)
 		nb = 1;
 	if (nb > (unsigned long long int)taille)
 	{
 		while (nb > (unsigned long long int)taille)
 		{
-			if (myvar->completion == 'r')
+			if (myvar->completion == 'l')
 			{
 				if ((myvar->type == 'x' || myvar->type == 'X') && myvar->alternate == 1)
 					ft_insert_str(2,&(myvar->data), "0");
@@ -62,20 +61,6 @@ void ft_largeur_comp(var_t *myvar)
 	}
 	else
 		myvar->data[taille] = '\0';
-}
-
-void ft_precision(var_t *myvar)
-{
-	int		i;
-	int		nb;
-
-	nb = myvar->precision;
-	i = 0;
-	if (nb > 0)
-	{
-		if (myvar->type == 's')
-			myvar->data[nb] = '\0';
-	}
 }
 
 int		ft_extend(var_t *myvar, const char *restrict str)

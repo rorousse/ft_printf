@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 16:44:22 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/16 15:58:57 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void		ft_check_treatment(var_t *myvar, const char *restrict str)
 		
 void		ft_check_completion(var_t *myvar, const char *restrict str)
 {
-	myvar->completion = 'r';
+	myvar->completion = 'l';
 	while (*str != myvar->type)
 	{
 		if (*str == '-')
-			myvar->completion = 'l';
+			myvar->completion = 'r';
 		str++;
 	}
 }
@@ -90,7 +90,7 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		if (ft_strcmp(myvar->treatment,"l") == 0)
 			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long int),16);
 		else if (ft_strcmp(myvar->treatment,"ll") == 0)
-			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long int),16);
+			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long long),16);
 		else if (ft_strcmp(myvar->treatment,"j") == 0)
             myvar->data = unsigned_itoa_base(va_arg(*ap,uintmax_t),16);
 		else
@@ -107,7 +107,16 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		}
 	}
 	else if (myvar->type == 'u')
-	  myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned int), 10);
+	{
+		if (ft_strcmp(myvar->treatment,"l") == 0)
+            myvar->data = unsigned_itoa_base(va_arg(*ap,long unsigned),10);
+		else if (ft_strcmp(myvar->treatment,"l") == 0)
+			myvar->data = unsigned_itoa_base(va_arg(*ap,long long unsigned),10);
+		else
+			myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned int), 10);
+	}
+	else if (myvar->type == 'U')
+		myvar->data = unsigned_itoa_base(va_arg(*ap,unsigned long),10);
 	else if (myvar->type == 'o')
 		myvar->data = ft_itoa_base(va_arg(*ap,int),8);
 	else
@@ -120,20 +129,16 @@ void		ft_gestion_params(va_list *ap, var_t *myvar)
 		myvar->data = ft_strdup("(null)");
 }
 
-void		ft_gestion_flags(var_t *myvar, const char *restrict str)
+void		ft_gestion_flags(var_t *myvar)
 {
 	int		i;
 
 	i = 0;
-	while (str[i] != myvar->type)
+	if (myvar->type != 'c' && myvar->type != 's' && myvar->type != '%')
 	{
-		if (str[i] == '+')
-		{
-			if (*(myvar->data) != '-')
-				ft_insert_str(0, &(myvar->data), "+");
-		}
-		else if(str[i] == '-')
-			myvar->completion = 'l';
-		i++;
+		if (myvar->flag == ' ' && *(myvar->data) != '-')
+			ft_insert_str(0, &(myvar->data), " ");
+		if (myvar->flag == '+' && *(myvar->data) != '-')
+			ft_insert_str(0, &(myvar->data), "+");
 	}
 }

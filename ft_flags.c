@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:12:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/15 16:55:36 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/16 13:37:28 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ void		ft_insert_str(int pos, char **dst, char *insertion)
 	char	*temp2;
 
 	i = 0;
-	temp = ft_strnew(pos + 1);
-	temp2 = ft_strnew(ft_strlen(*dst) - pos + 1);
+	temp = (char*)malloc((pos + 1) * sizeof(char));
+	temp2 = (char*)malloc((ft_strlen(*dst) - pos + 1) * sizeof(char));
 	while (i < pos)
 	{
-		temp[i] = *dst[i];
+		temp[i] = dst[0][i];
 		i++;
 	}
+	temp[i] = '\0';
 	ft_strcpy(temp2, *dst + pos);
 	free(*dst);
 	*dst = ft_strjoin(temp, insertion);
