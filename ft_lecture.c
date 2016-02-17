@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/16 16:39:42 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/17 11:40:59 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		ft_lecture(const char *restrict str, va_list *ap)
 	ft_putstr(myvar.data);
 	free(myvar.data);
 	free(myvar.treatment);
-	if (value == 0 && myvar.type != 's')
+	if (value == 0 && myvar.type == 'c')
 		value = 1;
 	return (value);
 }

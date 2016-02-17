@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/16 16:13:08 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/17 12:18:44 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ void ft_largeur(var_t *myvar)
 		while (nb > (unsigned long long int)taille)
 		{
 			if (myvar->completion == 'l')
-				ft_insert_str(0,&(myvar->data)," ");
-
+			{
+				if (*(myvar->data) == '+' || *(myvar->data) == '-')
+					ft_insert_str(1,&(myvar->data)," ");
+				else
+					ft_insert_str(0,&(myvar->data)," ");
+			}
 			else
 				ft_insert_end(&(myvar->data)," ");
 			nb--;
@@ -51,6 +55,8 @@ void ft_largeur_comp(var_t *myvar)
 			{
 				if ((myvar->type == 'x' || myvar->type == 'X') && myvar->alternate == 1)
 					ft_insert_str(2,&(myvar->data), "0");
+				else if (*(myvar->data) == '+' || *(myvar->data) == '-')
+					ft_insert_str(1,&(myvar->data),"0");
 				else
 					ft_insert_str(0,&(myvar->data),"0");
 			}
