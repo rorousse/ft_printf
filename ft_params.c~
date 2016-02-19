@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/19 15:23:52 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/19 15:08:25 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void		ft_gestion_flags(var_t *myvar)
 	{
 		if (myvar->flag == ' ' && *(myvar->data) != '-' && myvar->type != 'u')
 			ft_insert_str(0, &(myvar->data), " ");
-		if (myvar->flag == '+' && *(myvar->data) != '-' && myvar->type != 'u' && myvar->type != 'U')
+		if (myvar->flag == '+' && *(myvar->data) != '-')
 			ft_insert_str(0, &(myvar->data), "+");
 	}
 }

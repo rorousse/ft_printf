@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 16:13:18 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/19 13:34:31 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/19 11:15:54 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void ft_precision(var_t *myvar)
 
     nb = myvar->precision;
     taille = ft_strlen(myvar->data);
-	if (*(myvar->data) == '-' || *(myvar->data) == '+')
-		taille--;
     if (nb >= 0 && myvar->type != '%' && myvar->type != 'c')
     {
 		if (nb == 0 && myvar->type != 'd')

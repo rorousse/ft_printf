@@ -6,13 +6,13 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 21:21:32 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/11 15:03:09 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/19 13:48:11 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	det_size(intmax_t n, int base)
+static int	det_size(uintmax_t n, int base)
 {
 	int		count;
 
@@ -25,7 +25,7 @@ static int	det_size(intmax_t n, int base)
 	return (count);
 }
 
-static void	ft_calcul_rec(intmax_t n, int base, char *str)
+static void	ft_calcul_rec(uintmax_t n, int base, char *str)
 {
 	if (n != 0)
 	{
@@ -41,6 +41,7 @@ static void	ft_calcul_rec(intmax_t n, int base, char *str)
 
 char		*ft_itoa_base(intmax_t n, int base)
 {
+	uintmax_t val;
 	int		size;
 	int		neg;
 	char	*str;
@@ -56,19 +57,21 @@ char		*ft_itoa_base(intmax_t n, int base)
 	{
 		if (n < 0)
 		{
-			n = n * (-1);
+			val = n * (-1);
 			neg = 1;
 		}
-		size = det_size(n, base);
+		else
+			val = n;
+		size = det_size(val, base);
 		str = (char*)malloc((size + 2) * sizeof(char));
 		ft_bzero(str, size + 2);
 		if (neg == 1)
 		{
 			str[0] = '-';
-			ft_calcul_rec(n, base, str + 1);
+			ft_calcul_rec(val, base, str + 1);
 		}
 		else
-			ft_calcul_rec(n, base, str);
+			ft_calcul_rec(val, base, str);
 	}
 	return (str);
 }
