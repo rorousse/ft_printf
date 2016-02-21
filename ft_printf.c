@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/16 10:29:10 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/21 13:27:39 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 
 int		ft_printf(const char *restrict format, ...)
 {
-	int		value;
-
-	value = 0;
+	int			value;
 	va_list		ap;
 
+	value = 0;
 	va_start(ap, format);
 	while (*format)
 	{
@@ -29,7 +28,8 @@ int		ft_printf(const char *restrict format, ...)
 		{
 			format++;
 			value = value + ft_lecture(format, &ap);
-			while ((ft_strchr("-+ #.*hlLjz", *format) != NULL || ft_isdigit(*format)) && *format)
+			while ((ft_strchr("-+ #.*hlLjz", *format) != NULL
+			|| ft_isdigit(*format)) && *format)
 				format++;
 		}
 		else

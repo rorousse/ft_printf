@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/19 16:06:12 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/21 14:38:57 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,39 +66,4 @@ void ft_largeur_comp(var_t *myvar)
 	}
 	else
 		myvar->data[taille] = '\0';
-}
-
-int		ft_extend(var_t *myvar, const char *restrict str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i] != myvar->type)
-	{
-		if (str[i] == '.')
-		{
-			i++;
-			if (ft_isdigit(str[i]) == 1)
-				myvar->precision = ft_atoi(str + i);
-			else
-				myvar->precision = 0;
-			while (ft_isdigit(str[i]) == 1)
-				i++;
-		}
-		else if (ft_isdigit(str[i]) == 1)
-		{
-			if (str[i] == '0')
-			{
-				myvar->flag_largeur = 1;
-				myvar->largeur = ft_atoi(str + i + 1);
-			}
-			else
-				myvar->largeur = ft_atoi(str + i);
-			while (ft_isdigit(str[i]) == 1)
-				i++;
-		}
-		else
-			i++;
-	}
-	return (0);
 }

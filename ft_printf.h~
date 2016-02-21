@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/21 14:39:28 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/21 14:25:40 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			ft_extend(var_t *myvar, const char *restrict str);
 void		ft_largeur(var_t *myvar);
 void		ft_largeur_comp(var_t *myvar);
 void		ft_precision(var_t *myvar);
-int			ft_extension(var_t *myvar, const char *restrict str);
+int			ft_extend(var_t *myvar, const char *restrict str);
 void		ft_check_completion(var_t *myvar, const char *restrict str);
 void		ft_check_treatment(var_t *myvar, const char *restrict str);
 void		ft_insert_end(char **dst, char *insertion);
