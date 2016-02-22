@@ -6,7 +6,7 @@
 #    By: rorousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/01 03:14:08 by rorousse          #+#    #+#              #
-#    Updated: 2016/02/21 14:38:18 by rorousse         ###   ########.fr        #
+#    Updated: 2016/02/21 16:31:59 by rorousse         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -15,7 +15,7 @@ HEADER = ft_printf.h libft/libft.h
 SRC_PATH=./
 OBJ_PATH=./
 LIBS= libft/libft.a
-SRC = ft_flags.c ft_largeur.c ft_lecture.c ft_params.c ft_printf.c ft_precision.c ft_insertion.c ft_extension.c
+SRC = ft_flags.c ft_largeur.c ft_lecture.c ft_params.c ft_printf.c ft_precision.c ft_insertion.c ft_extension.c ft_treatment.c
 
 OBJ = $(SRC:.c=.o )
 

@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void	ft_init_precision(var_t *myvar, int *taille, int *nb)
+static void	ft_init_precision(t_var *myvar, int *taille, int *nb)
 {
 	*nb = myvar->precision;
 	*taille = ft_strlen(myvar->data);
@@ -21,7 +21,7 @@ static void	ft_init_precision(var_t *myvar, int *taille, int *nb)
 		*taille = *taille - 1;
 }
 
-void		ft_precision(var_t *myvar)
+void		ft_precision(t_var *myvar)
 {
 	int		taille;
 	int		nb;
