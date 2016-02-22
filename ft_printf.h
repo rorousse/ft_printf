@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 16:07:57 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/22 17:43:44 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ void					ft_check_completion(t_var *myvar,
 void					ft_check_treatment(t_var *myvar,
 						const char *restrict str);
 void					ft_insert_end(char **dst, char *insertion);
+void					ft_gestion_integer(va_list *ap, t_var *myvar);
+void					ft_gestion_hexa(va_list *ap, t_var *myvar);
+void					ft_gestion_octal(va_list *ap, t_var *myvar);
 
 #endif
