@@ -6,7 +6,7 @@
 #    By: rorousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/01 03:14:08 by rorousse          #+#    #+#              #
-#    Updated: 2016/02/21 16:31:59 by rorousse         ###   ########.fr        #
+#    Updated: 2016/02/22 16:52:55 by rorousse         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -33,8 +33,10 @@ $(OBJ_PATH)%.o:$(SRC_PATH)%.c
 
 clean :
 	/bin/rm -f $(OBJ)
+	make clean -C libft/
 
 fclean : clean
 	/bin/rm -f $(NAME)
+	make fclean -C libft/
 
 re : fclean all
