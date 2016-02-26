@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/26 17:13:32 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/26 18:31:44 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int		ft_uni_printage(t_var *myvar)
 		ft_uni_largeur_comp(myvar);
 	else
 		ft_uni_largeur(myvar);
-	return (ft_uni_affichage(&myvar));
+	return (ft_uni_affichage(myvar));
 }
 
 int			ft_lecture(const char *restrict str, va_list *ap)
@@ -94,6 +94,6 @@ int			ft_lecture(const char *restrict str, va_list *ap)
 	ft_extension(&myvar, str);
 	if (myvar.data != NULL)
 		return (ft_printage(&myvar));
-	else
+	if (myvar.unidata != NULL)
 		return (ft_uni_printage(&myvar));
 }

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uni_putstr.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/23 18:09:19 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/26 18:55:25 by rorousse         ###   ########.fr       */
+/*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
+/*   Updated: 2016/02/26 19:59:35 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <limits.h>
+#include "ft_printf.h"
+#include <locale.h>
 
-void	ft_uni_putstr(wchar_t *str)
+int main()
 {
-	int	i;
+	char *test;
 
-	i = 0;
-	while (str[i] != L'\0')
-	{
-		if ((unsigned long int)str[i] > 127) 
-			ft_uni_putchar(str[i]);
-		else
-			ft_putchar(str[i]);
-		i++;
-	}
+	setlocale(LC_ALL, "en_US.UTF-8");
+	ft_printf("{%-30S}\n", L"我是一只猫。");
+	printf("printf donne {%-30S}\n",L"我是一只猫。");
+	return (0);
 }

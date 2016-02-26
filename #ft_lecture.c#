@@ -94,7 +94,7 @@ int			ft_lecture(const char *restrict str, va_list *ap)
 	ft_extension(&myvar, str);
 	if (myvar.data != NULL)
 		return (ft_printage(&myvar));
-	else if (myvar.unidata != NULL)
+	else if (myvar.unidata != makeNULL)
 		return (ft_uni_printage(&myvar));
 	else
 		return (0);
