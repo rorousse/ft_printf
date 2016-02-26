@@ -6,7 +6,7 @@
 #    By: rorousse <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/01 03:14:08 by rorousse          #+#    #+#              #
-#    Updated: 2016/02/22 13:22:29 by rorousse         ###   ########.fr        #
+#    Updated: 2016/02/24 12:51:07 by rorousse         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ NAME = libft.a
 HEADER = libft.h
 SRC_PATH=./
 OBJ_PATH=./
-SRC =  ft_isalnum.c ft_isprint.c ft_lstcount.c ft_lstmap.c ft_memchr.c ft_memmove.c ft_putendl.c ft_putstr.c ft_strclr.c ft_strdup.c ft_strjoin.c ft_strmapi.c ft_strnequ.c ft_strsplit.c ft_swap.c ft_toupper.c ft_isalpha.c ft_itoa.c ft_lstdel.c ft_lstnew.c ft_memcmp.c ft_memset.c ft_putendl_fd.c ft_putstr_fd.c ft_strcmp.c ft_strequ.c ft_strlcat.c ft_strncat.c ft_strnew.c ft_strstr.c ft_tabcount.c ft_atoi.c ft_isascii.c ft_lstaddend.c ft_lstdelone.c ft_memalloc.c ft_memcpy.c ft_putchar.c ft_putnbr.c ft_strcat.c ft_strcpy.c ft_striter.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strsub.c ft_tabtri.c ft_bzero.c ft_isdigit.c ft_lstadd.c ft_lstiter.c ft_memccpy.c ft_memdel.c ft_putchar_fd.c ft_putnbr_fd.c ft_strchr.c ft_strdel.c ft_striteri.c ft_strmap.c ft_strncpy.c ft_strrchr.c ft_strtrim.c ft_tolower.c ft_replace_first.c ft_itoa_base.c unsigned_itoa_base.c ft_atoi_base.c
+SRC =  ft_isalnum.c ft_isprint.c ft_lstcount.c ft_lstmap.c ft_memchr.c ft_memmove.c ft_putendl.c ft_putstr.c ft_strclr.c ft_strdup.c ft_strjoin.c ft_strmapi.c ft_strnequ.c ft_strsplit.c ft_swap.c ft_toupper.c ft_isalpha.c ft_itoa.c ft_lstdel.c ft_lstnew.c ft_memcmp.c ft_memset.c ft_putendl_fd.c ft_putstr_fd.c ft_strcmp.c ft_strequ.c ft_strlcat.c ft_strncat.c ft_strnew.c ft_strstr.c ft_tabcount.c ft_atoi.c ft_isascii.c ft_lstaddend.c ft_lstdelone.c ft_memalloc.c ft_memcpy.c ft_putchar.c ft_putnbr.c ft_strcat.c ft_strcpy.c ft_striter.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strsub.c ft_tabtri.c ft_bzero.c ft_isdigit.c ft_lstadd.c ft_lstiter.c ft_memccpy.c ft_memdel.c ft_putchar_fd.c ft_putnbr_fd.c ft_strchr.c ft_strdel.c ft_striteri.c ft_strmap.c ft_strncpy.c ft_strrchr.c ft_strtrim.c ft_tolower.c ft_replace_first.c ft_itoa_base.c unsigned_itoa_base.c ft_atoi_base.c ft_uni_putchar.c ft_uni_putstr.c ft_uni_strdup.c ft_uni_strlen.c ft_uni_strcpy.c ft_uni_strjoin.c ft_uni_strcat.c
 
 OBJ = $(SRC:.c=.o )
 

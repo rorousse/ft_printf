@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 13:46:32 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/26 17:14:20 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	ft_init_var(t_var *myvar)
 	myvar->largeur = 0;
 	myvar->char_null = 0;
 	ft_bzero(myvar->treatment, 3);
+	myvar->data = NULL;
+	myvar->unidata = NULL;
 }
 
 static void	ft_search_flags(const char *restrict str, t_var *myvar)
@@ -50,29 +52,30 @@ static void	ft_search_flags(const char *restrict str, t_var *myvar)
 	myvar->type = str[i];
 }
 
-static int	ft_affichage(t_var *myvar)
+static int		ft_printage(t_var *myvar)
 {
-	int		value;
-
-	value = 0;
-	if (myvar->char_null == 0)
-	{
-		value = ft_strlen(myvar->data);
-		ft_putstr(myvar->data);
-	}
+	ft_precision(myvar);
+	if (myvar->alternate == 1)
+		ft_alternate_form(myvar);
+	ft_gestion_flags(myvar);
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+		ft_largeur_comp(myvar);
 	else
-	{
-		while (myvar->data[value])
-		{
-			if (myvar->data[value] == 'a')
-				ft_putchar('\0');
-			else
-				ft_putchar(myvar->data[value]);
-			value++;
-		}
-	}
-	free(myvar->data);
-	return (value);
+		ft_largeur(myvar);
+	return (ft_affichage(myvar));
+}
+
+static int		ft_uni_printage(t_var *myvar)
+{
+	ft_uni_precision(myvar);
+	if (myvar->alternate == 1)
+		ft_alternate_form(myvar);
+	ft_gestion_flags(myvar);
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+		ft_uni_largeur_comp(myvar);
+	else
+		ft_uni_largeur(myvar);
+	return (ft_uni_affichage(myvar));
 }
 
 int			ft_lecture(const char *restrict str, va_list *ap)
@@ -89,13 +92,8 @@ int			ft_lecture(const char *restrict str, va_list *ap)
 	ft_check_treatment(&myvar, str);
 	ft_gestion_params(ap, &myvar);
 	ft_extension(&myvar, str);
-	ft_precision(&myvar);
-	if (myvar.alternate == 1)
-		ft_alternate_form(&myvar);
-	ft_gestion_flags(&myvar);
-	if (myvar.flag_largeur == 1 && myvar.negation == 0 && myvar.precision == -1)
-		ft_largeur_comp(&myvar);
+	if (myvar.data != NULL)
+		return (ft_printage(&myvar));
 	else
-		ft_largeur(&myvar);
-	return (ft_affichage(&myvar));
+		return (ft_uni_printage(&myvar));
 }

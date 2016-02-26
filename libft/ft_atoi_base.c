@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 15:04:36 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 13:30:57 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/24 11:55:01 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static void	fill_str(int *nb, int base, const char *str)
 	{
 		*nb = (*nb) * base;
 		if (str[i] >= '0' && str[i] <= '9')
-			nb = nb + (str[i] - '0');
+			*nb = *nb + (str[i] - '0');
 		else if (str[i] >= 'a' && str[i] <= 'z')
-			nb = nb + (str[i] - 'a' + 10);
+			*nb = *nb + (str[i] - 'a' + 10);
 		else if (str[i] >= 'A' && str[i] <= 'Z')
-			nb = nb + (str[i] - 'A' + 10);
+			*nb = *nb + (str[i] - 'A' + 10);
 		i++;
 	}
 }

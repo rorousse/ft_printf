@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 17:43:44 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/26 17:14:08 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include <stdarg.h>
 # include <stdio.h>
+# include <wchar.h>
 
 struct					s_var
 {
 	char				*data;
+	wchar_t				*unidata;
 	char				type;
 	char				treatment[3];
 	char				completion;
@@ -53,5 +55,12 @@ void					ft_insert_end(char **dst, char *insertion);
 void					ft_gestion_integer(va_list *ap, t_var *myvar);
 void					ft_gestion_hexa(va_list *ap, t_var *myvar);
 void					ft_gestion_octal(va_list *ap, t_var *myvar);
+int						ft_affichage(t_var *myvar);
+int						ft_uni_affichage(t_var *myvar);
+void					ft_uni_precision(t_var *myvar);
+void					ft_uni_insert_str(int pos, wchar_t **dst, wchar_t *insertion);
+void					ft_uni_insert_end(wchar_t **dst, wchar_t *insertion);
+void					ft_uni_largeur(t_var *myvar);
+void					ft_uni_largeur_comp(t_var *myvar);
 
 #endif

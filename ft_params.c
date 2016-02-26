@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 17:51:24 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:39:35 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ static void	ft_gestion_unsigned(va_list *ap, t_var *myvar)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned int), 10);
 }
 
+static void	ft_gestion_unichar(va_list *ap, t_var *myvar)
+{
+	myvar->unidata = (wchar_t*)malloc(2 * sizeof(wchar_t));
+	myvar->unidata[0] = va_arg(*ap, wchar_t);
+	myvar->unidata[1] = L'\0';
+	if (myvar->unidata[0] == L'\0')
+	{
+		myvar->unidata[0] = L'a';
+		myvar->char_null = 1;
+	}
+}
+
 void		ft_gestion_params(va_list *ap, t_var *myvar)
 {
 	if (myvar->type == 's')
@@ -47,6 +59,8 @@ void		ft_gestion_params(va_list *ap, t_var *myvar)
 		ft_gestion_integer(ap, myvar);
 	else if (myvar->type == 'c')
 		ft_gestion_char(ap, myvar);
+	else if (myvar->type == 'C')
+		ft_gestion_unichar(ap, myvar);
 	else if (myvar->type == 'p')
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned long long int),
 		16);

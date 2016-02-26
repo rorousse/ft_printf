@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/01/28 16:50:35 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/24 12:51:33 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,11 @@ extern char			*ft_itoa_base(intmax_t n, int base);
 extern char			*unsigned_itoa_base(uintmax_t n, int base);
 extern void			ft_uni_putchar(wchar_t c);
 extern int			ft_atoi_base(const char *str, int base);
+extern void			ft_uni_putstr(wchar_t *str);
+extern wchar_t		*ft_uni_strdup(wchar_t *str);
+extern int			ft_uni_strlen(wchar_t *str);
+extern wchar_t		*ft_uni_strcpy(wchar_t *dst, wchar_t *src);
+extern wchar_t		*ft_uni_strcat(wchar_t *dst, wchar_t *src);
+extern wchar_t		*ft_uni_strjoin(wchar_t *s1, wchar_t *s2);
 
 #endif
