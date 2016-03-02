@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 11:51:12 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/02 17:20:40 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ static void	ft_search_flags(const char *restrict str, t_var *myvar)
 static int		ft_printage(t_var *myvar)
 {
 	ft_precision(myvar);
+	ft_gestion_flags(myvar);
 	if (myvar->alternate == 1)
 		ft_alternate_form(myvar);
-	ft_gestion_flags(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
 		ft_largeur_comp(myvar);
 	else
 		ft_largeur(myvar);
@@ -68,7 +68,7 @@ static int		ft_printage(t_var *myvar)
 static int		ft_uni_printage(t_var *myvar)
 {
 	ft_uni_precision(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
 		ft_uni_largeur_comp(myvar);
 	else
 		ft_uni_largeur(myvar);

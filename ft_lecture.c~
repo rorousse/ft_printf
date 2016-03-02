@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/26 18:31:44 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/02 17:14:48 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ static void	ft_search_flags(const char *restrict str, t_var *myvar)
 
 static int		ft_printage(t_var *myvar)
 {
+	ft_putstr("printage\n");
 	ft_precision(myvar);
+	ft_gestion_flags(myvar);
 	if (myvar->alternate == 1)
 		ft_alternate_form(myvar);
-	ft_gestion_flags(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+	ft_putstr("boum\n");
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
 		ft_largeur_comp(myvar);
 	else
 		ft_largeur(myvar);
@@ -68,10 +70,7 @@ static int		ft_printage(t_var *myvar)
 static int		ft_uni_printage(t_var *myvar)
 {
 	ft_uni_precision(myvar);
-	if (myvar->alternate == 1)
-		ft_alternate_form(myvar);
-	ft_gestion_flags(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision == -1)
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
 		ft_uni_largeur_comp(myvar);
 	else
 		ft_uni_largeur(myvar);
@@ -91,9 +90,13 @@ int			ft_lecture(const char *restrict str, va_list *ap)
 	ft_check_completion(&myvar, str);
 	ft_check_treatment(&myvar, str);
 	ft_gestion_params(ap, &myvar);
+	ft_putstr("params ok \n");
 	ft_extension(&myvar, str);
+	ft_putstr("extension ok\n");
 	if (myvar.data != NULL)
 		return (ft_printage(&myvar));
-	if (myvar.unidata != NULL)
+	else if (myvar.unidata != NULL)
 		return (ft_uni_printage(&myvar));
+	else
+		return (0);
 }

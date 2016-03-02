@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 14:07:21 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/02 17:32:53 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main()
 	int	taillemine;
 
 	setlocale(LC_ALL, "en_US.UTF-8");
-	tailleor = printf("%+o\n", 42);
-	taillemine = ft_printf("%+o\n", 42);
+	tailleor = printf("%15.4S", L"ææäåç。");
+	taillemine = ft_printf("%15.4\nS", L"ææäåç。");
 	printf("original %d mien %d\n",tailleor,taillemine);
 	return (0);
 }
