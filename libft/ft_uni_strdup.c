@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 18:40:40 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/24 15:27:48 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/02 11:31:18 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ wchar_t	*ft_uni_strdup(wchar_t *str)
 
 	i = 0;
 	taille = 0;
+	if (str == NULL)
+		return (NULL);
 	while (str[i] != L'\0')
 	{
 		i++;
