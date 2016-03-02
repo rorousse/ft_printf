@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/26 19:55:50 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/02 14:07:21 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 
 int main()
 {
-	char *test;
+	int	tailleor;
+	int	taillemine;
 
 	setlocale(LC_ALL, "en_US.UTF-8");
-	ft_printf("{%-30S}", L"我是一只猫。");
-	printf("{%-30S}", L"我是一只猫");
+	tailleor = printf("%+o\n", 42);
+	taillemine = ft_printf("%+o\n", 42);
+	printf("original %d mien %d\n",tailleor,taillemine);
 	return (0);
 }
