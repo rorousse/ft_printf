@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 17:21:25 by rorousse          #+#    #+#             */
-/*   Updated: 2016/02/22 17:28:57 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/03 18:13:04 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	ft_gestion_integer(va_list *ap, t_var *myvar)
 	char		c;
 	short int	n;
 
-	if (ft_strcmp(myvar->treatment, "z") == 0)
+	if (ft_strcmp(myvar->treatment, "l") == 0 || myvar->type == 'D')
+        myvar->data = ft_itoa_base(va_arg(*ap, long int), 10);
+	else if (ft_strcmp(myvar->treatment, "z") == 0)
 		myvar->data = ft_itoa_base(va_arg(*ap, unsigned long long int), 10);
 	else if (ft_strcmp(myvar->treatment, "hh") == 0)
 	{
@@ -32,8 +34,6 @@ void	ft_gestion_integer(va_list *ap, t_var *myvar)
 		n = va_arg(*ap, int);
 		myvar->data = ft_itoa_base(n, 10);
 	}
-	else if (ft_strcmp(myvar->treatment, "l") == 0 || myvar->type == 'D')
-		myvar->data = ft_itoa_base(va_arg(*ap, long int), 10);
 	else if (ft_strcmp(myvar->treatment, "ll") == 0)
 		myvar->data = ft_itoa_base(va_arg(*ap, long long int), 10);
 	else if (ft_strcmp(myvar->treatment, "j") == 0)

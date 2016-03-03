@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 15:45:24 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/03 18:41:28 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void							ft_largeur_comp(t_var *myvar)
 		{
 			if (myvar->completion == 'l')
 			{
-				if ((myvar->type == 'x' || myvar->type == 'X')
-					&& myvar->alternate == 1)
+				if (((myvar->type == 'x' || myvar->type == 'X')
+					 && myvar->alternate == 1) || myvar->type == 'p')
 					ft_insert_str(2, &(myvar->data), "0");
-				else if (*(myvar->data) == '+' || *(myvar->data) == '-')
+				else if (*(myvar->data) == '+' || *(myvar->data) == '-' || myvar->flag == ' ')
 					ft_insert_str(1, &(myvar->data), "0");
 				else
 					ft_insert_str(0, &(myvar->data), "0");

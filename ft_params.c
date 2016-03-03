@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 17:20:03 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/03 18:31:43 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,21 @@ static void	ft_gestion_char(va_list *ap, t_var *myvar)
 
 static void	ft_gestion_unsigned(va_list *ap, t_var *myvar)
 {
+	unsigned char c;
+
 	if (ft_strcmp(myvar->treatment, "l") == 0 || myvar->type == 'U')
 		myvar->data = unsigned_itoa_base(va_arg(*ap, long unsigned), 10);
+	else if (ft_strcmp(myvar->treatment, "z") == 0)
+        myvar->data = unsigned_itoa_base(va_arg(*ap, size_t), 10);
 	else if (ft_strcmp(myvar->treatment, "ll") == 0)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, long long unsigned), 10);
 	else if (ft_strcmp(myvar->treatment, "j") == 0)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, uintmax_t), 10);
+	else if (ft_strcmp(myvar->treatment, "hh") == 0)
+	{
+        c = va_arg(*ap, unsigned int);
+		myvar->data = unsigned_itoa_base(c, 10);
+	}
 	else
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned int), 10);
 }

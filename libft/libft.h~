@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 14:34:26 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/02/24 12:51:33 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,5 @@ extern int			ft_uni_strlen(wchar_t *str);
 extern wchar_t		*ft_uni_strcpy(wchar_t *dst, wchar_t *src);
 extern wchar_t		*ft_uni_strcat(wchar_t *dst, wchar_t *src);
 extern wchar_t		*ft_uni_strjoin(wchar_t *s1, wchar_t *s2);
-extern int			ft_uni_sizeof(wchar_t c);
 
 #endif

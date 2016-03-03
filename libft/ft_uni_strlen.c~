@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 19:03:02 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 14:34:59 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/03 14:33:34 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_uni_strlen(wchar_t *str)
 {
 	int		i;
 	int		taille;
+	int		sizebin;
+	char	*bin;
 
 	taille = 0;
 	i = 0;
