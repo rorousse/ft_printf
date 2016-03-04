@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 16:13:18 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 17:30:19 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/04 10:22:19 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void        ft_uni_precision(t_var *myvar)
 			while (nb >= taille)
 			{
 				i++;
-				taille = taille + ft_uni_sizeof(myvar->unidata[i]);
+				taille = taille + ft_uni_size(myvar->unidata[i]);
 			}
 			myvar->unidata[i] = L'\0';
 		}

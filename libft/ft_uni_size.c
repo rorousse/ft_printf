@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uni_strlen.c                                    :+:      :+:    :+:   */
+/*   ft_uni_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/23 19:03:02 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/04 10:20:37 by rorousse         ###   ########.fr       */
+/*   Created: 2016/03/04 10:21:48 by rorousse          #+#    #+#             */
+/*   Updated: 2016/03/04 10:24:07 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_uni_strlen(wchar_t *str)
+int		ft_uni_size(wchar_t c)
 {
-	int		i;
+	int		sizebin;
 	int		taille;
+	char	*bin;
 
 	taille = 0;
-	i = 0;
-	while (str[i] != L'\0')
-	{
-		taille = taille + ft_uni_size(str[i]);
-		i++;
-	}
+	bin = unsigned_itoa_base((unsigned long long int)c, 2);
+	sizebin = ft_strlen(bin);
+	if (sizebin <= 7)
+		taille = taille + 1;
+	else if (sizebin <= 11)
+		taille = taille + 2;
+	else if (sizebin <= 16)
+		taille = taille + 3;
+	else
+		taille = taille + 4;
+	free(bin);
 	return (taille);
 }
