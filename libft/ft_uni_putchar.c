@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 13:42:50 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/04 10:48:05 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/04 11:28:36 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	ft_remplacement(char *mask, char *bin)
 	}
 }
 
-static void	ft_splittage(int taille, char *mask[4], char *bin, char ***splitted)
+static void	ft_splittage(int taille, char **mask, char *bin, char ***splitted)
 {
 	if (taille <= 7)
     {
@@ -61,13 +61,37 @@ static void	ft_splittage(int taille, char *mask[4], char *bin, char ***splitted)
     }
 }
 
+static void	liberation(char **bin, char ***splitted, char ***mask)
+{
+	int		taille;
+
+	taille = 0;
+	free(*bin);
+    while (taille < 4)
+	{
+		free(mask[0][taille]);
+		taille++;
+	}
+	free(*mask);
+	taille = 0;
+    if (*splitted != NULL)
+    {
+        while (splitted[0][taille] != NULL)
+        {
+            free(splitted[0][taille]);
+            taille++;
+        }
+        free(*splitted);
+    }
+}
 void		ft_uni_putchar(wchar_t c)
 {
 	char	*bin;
-	char	*mask[4];
+	char	**mask;
 	char	**splitted;
 	int		taille;
 
+	mask = (char**)malloc(4 * sizeof(char*));
 	mask[0] = ft_strdup("0xxxxxxx");
 	mask[1] = ft_strdup("110xxxxx 10xxxxxx");
 	mask[2] = ft_strdup("1110xxxx 10xxxxxx 10xxxxxx");
@@ -81,19 +105,5 @@ void		ft_uni_putchar(wchar_t c)
 		ft_putchar(ft_atoi_base(splitted[taille], 2));
 		taille++;
 	}
-	free(bin);
-	free(mask[0]);
-	free(mask[1]);
-	free(mask[2]);
-	free(mask[3]);
-	taille = 0;
-	if (splitted != NULL)
-	{
-		while (splitted[taille] != NULL)
-		{
-			free(splitted[taille]);
-			taille++;
-		}
-		free(splitted);
-	}
+	liberation(&bin, &splitted, &mask);
 }
