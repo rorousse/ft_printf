@@ -6,14 +6,15 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/21 14:37:58 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 13:55:22 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 17:12:52 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void	det_precision(const char *restrict str, int *i, t_var *myvar, va_list *ap)
+static void	det_precision(const char *restrict str, int *i,
+t_var *myvar, va_list *ap)
 {
 	*i = *i + 1;
 	if (ft_isdigit(str[*i]) == 1)
@@ -36,6 +37,28 @@ static void	check_negative_flag(t_var *myvar)
 	}
 }
 
+static void	det_largeur(t_var *myvar, const char *restrict str,
+va_list *ap, int *i)
+{
+	if (str[*i] == '0')
+	{
+		myvar->flag_largeur = 1;
+		if (str[*i + 1] == '*')
+			myvar->largeur = va_arg(*ap, int);
+		else
+			myvar->largeur = ft_atoi(str + *i + 1);
+	}
+	else if (str[*i] == '*')
+		myvar->largeur = va_arg(*ap, int);
+	else
+		myvar->largeur = ft_atoi(str + *i);
+	if (ft_isdigit(str[*i]) == 1)
+		while ((ft_isdigit(str[*i]) == 1))
+			*i = *i + 1;
+	else
+		*i = *i + 1;
+}
+
 int			ft_extension(t_var *myvar, const char *restrict str, va_list *ap)
 {
 	int		i;
@@ -46,25 +69,7 @@ int			ft_extension(t_var *myvar, const char *restrict str, va_list *ap)
 		if (str[i] == '.')
 			det_precision(str, &i, myvar, ap);
 		else if ((ft_isdigit(str[i]) == 1) || str[i] == '*')
-		{
-			if (str[i] == '0')
-			{
-				myvar->flag_largeur = 1;
-				if (str[i + 1] == '*')
-					myvar->largeur = va_arg(*ap, int);
-				else
-					myvar->largeur = ft_atoi(str + i + 1);
-			}
-			else if (str[i] == '*')
-				myvar->largeur = va_arg(*ap, int);
-			else
-				myvar->largeur = ft_atoi(str + i);
-			if (ft_isdigit(str[i]) == 1)
-				while ((ft_isdigit(str[i]) == 1))
-					i++;
-			else
-				i++;
-		}
+			det_largeur(myvar, str, ap, &i);
 		else
 			i++;
 	}

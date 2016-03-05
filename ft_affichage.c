@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 10:27:50 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 10:15:18 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 15:20:59 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ int	ft_affichage(t_var *myvar)
 		}
 	}
 	free(myvar->data);
-	
 	return (value);
 }
 
-int ft_uni_affichage(t_var *myvar)
+int	ft_uni_affichage(t_var *myvar)
 {
 	int		value;
 

@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/22 17:37:29 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 18:19:53 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 15:23:07 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_gestion_octal(va_list *ap, t_var *myvar)
 	if (ft_strcmp(myvar->treatment, "l") == 0 || myvar->type == 'O')
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned long int), 8);
 	else if (ft_strcmp(myvar->treatment, "z") == 0)
-        myvar->data = unsigned_itoa_base(va_arg(*ap, size_t), 8);
+		myvar->data = unsigned_itoa_base(va_arg(*ap, size_t), 8);
 	else if (ft_strcmp(myvar->treatment, "ll") == 0)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned long long), 8);
 	else if (ft_strcmp(myvar->treatment, "j") == 0)

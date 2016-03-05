@@ -6,14 +6,14 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 12:19:00 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 15:42:43 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void	ft_init_var(t_var *myvar)
+static void		ft_init_var(t_var *myvar)
 {
 	myvar->flag_precision = 0;
 	myvar->flag_largeur = 0;
@@ -28,7 +28,7 @@ static void	ft_init_var(t_var *myvar)
 	myvar->unidata = NULL;
 }
 
-static void	ft_search_flags(const char *restrict str, t_var *myvar)
+static void		ft_search_flags(const char *restrict str, t_var *myvar)
 {
 	int		i;
 
@@ -58,7 +58,8 @@ static int		ft_printage(t_var *myvar)
 	ft_gestion_flags(myvar);
 	if (myvar->alternate == 1)
 		ft_alternate_form(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 &&
+		myvar->precision <= 0)
 		ft_largeur_comp(myvar);
 	else
 		ft_largeur(myvar);
@@ -68,14 +69,15 @@ static int		ft_printage(t_var *myvar)
 static int		ft_uni_printage(t_var *myvar)
 {
 	ft_uni_precision(myvar);
-	if (myvar->flag_largeur == 1 && myvar->negation == 0 && myvar->precision <= 0)
+	if (myvar->flag_largeur == 1 && myvar->negation == 0 &&
+		myvar->precision <= 0)
 		ft_uni_largeur_comp(myvar);
 	else
 		ft_uni_largeur(myvar);
 	return (ft_uni_affichage(myvar));
 }
 
-int			ft_lecture(const char *restrict str, va_list *ap)
+int				ft_lecture(const char *restrict str, va_list *ap)
 {
 	int		i;
 	t_var	myvar;

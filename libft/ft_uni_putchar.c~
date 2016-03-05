@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 13:42:50 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 16:01:04 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 15:54:13 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,23 @@ static void	liberation(char **bin, char ***splitted, char ***mask)
 
 	taille = 0;
 	free(*bin);
-	while (taille < 4)
+    while (taille < 4)
 	{
 		free(mask[0][taille]);
 		taille++;
 	}
 	free(*mask);
 	taille = 0;
-	if (*splitted != NULL)
-	{
-		while (splitted[0][taille] != NULL)
-		{
-			free(splitted[0][taille]);
-			taille++;
-		}
-		free(*splitted);
-	}
+    if (*splitted != NULL)
+    {
+        while (splitted[0][taille] != NULL)
+        {
+            free(splitted[0][taille]);
+            taille++;
+        }
+        free(*splitted);
+    }
 }
-
 void		ft_uni_putchar(wchar_t c)
 {
 	char	*bin;

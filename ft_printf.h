@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 12:26:09 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 16:05:47 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void					ft_alternate_form(t_var *myvar);
 void					ft_largeur(t_var *myvar);
 void					ft_largeur_comp(t_var *myvar);
 void					ft_precision(t_var *myvar);
-int						ft_extension(t_var *myvar, const char *restrict str, va_list *ap);
+int						ft_extension(t_var *myvar, const char *restrict str,
+								va_list *ap);
 void					ft_check_completion(t_var *myvar,
 						const char *restrict str);
 void					ft_check_treatment(t_var *myvar,
@@ -57,7 +58,8 @@ void					ft_gestion_octal(va_list *ap, t_var *myvar);
 int						ft_affichage(t_var *myvar);
 int						ft_uni_affichage(t_var *myvar);
 void					ft_uni_precision(t_var *myvar);
-void					ft_uni_insert_str(int pos, wchar_t **dst, wchar_t *insertion);
+void					ft_uni_insert_str(int pos, wchar_t **dst,
+									wchar_t *insertion);
 void					ft_uni_insert_end(wchar_t **dst, wchar_t *insertion);
 void					ft_uni_largeur(t_var *myvar);
 void					ft_uni_largeur_comp(t_var *myvar);
