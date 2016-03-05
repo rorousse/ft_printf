@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_decimal.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 19:26:07 by rorousse         ###   ########.fr       */
+/*   Created: 2016/03/05 19:28:27 by rorousse          #+#    #+#             */
+/*   Updated: 2016/03/05 19:32:23 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <limits.h>
-#include "ft_printf.h"
-#include <locale.h>
-#include "libft/libft.h"
-
-int main()
+void	ft_gestion_decimal(va_list *ap, t_var *myvar)
 {
-	double nb = 123456.123456789123456789;
-	unsigned long long int test = (unsigned long long int)nb;
-	nb = nb - test;
-	printf("%.30f\n",nb);
-	return (0);
-}
+	double						nb;
+	unsigned long long int		entier;
+
+	nb = va_arg(*ap, double);
+	entier = (unsigned long long int)nb;
+	nb = nb - (double)entier;
+	
