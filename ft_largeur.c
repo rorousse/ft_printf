@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 18:11:34 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 18:41:28 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 12:28:35 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 void							ft_largeur(t_var *myvar)
 {
 	int							taille;
-	unsigned long long int		nb;
+	int							nb;
 
 	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
 	if (*(myvar->data) == '\0' && myvar->type == 'c')
 		taille++;
-	if (nb > (unsigned long long int)taille)
+	if (nb > taille)
 	{
-		while (nb > (unsigned long long int)taille)
+		while (nb > taille)
 		{
 			if (myvar->completion == 'l')
 				ft_insert_str(0, &(myvar->data), " ");
@@ -38,14 +38,14 @@ void							ft_largeur(t_var *myvar)
 void							ft_largeur_comp(t_var *myvar)
 {
 	int							taille;
-	unsigned long long int		nb;
+	int							nb;
 
 	nb = myvar->largeur;
 	taille = (int)ft_strlen(myvar->data);
 	if (nb == 0)
 		nb = 1;
-	if (nb > (unsigned long long int)taille)
-		while (nb > (unsigned long long int)taille)
+	if (nb > taille)
+		while (nb > taille)
 		{
 			if (myvar->completion == 'l')
 			{
@@ -68,15 +68,15 @@ void							ft_largeur_comp(t_var *myvar)
 void                            ft_uni_largeur(t_var *myvar)
 {
 	int                         taille;
-	unsigned long long int      nb;
+	int 					     nb;
 
 	nb = myvar->largeur;
 	taille = (int)ft_uni_strlen(myvar->unidata);
 	if (*(myvar->unidata) == L'\0' && myvar->type == 'c')
 		taille++;
-	if (nb > (unsigned long long int)taille)
+	if (nb > taille)
 	{
-		while (nb > (unsigned long long int)taille)
+		while (nb > taille)
 		{
 			if (myvar->completion == 'l')
 				ft_uni_insert_str(0, &(myvar->unidata), L" ");
@@ -91,14 +91,14 @@ void                            ft_uni_largeur(t_var *myvar)
 void                            ft_uni_largeur_comp(t_var *myvar)
 {
 	int                         taille;
-	unsigned long long int      nb;
+	int							nb;
 
 	nb = myvar->largeur;
 	taille = (int)ft_uni_strlen(myvar->unidata);
 	if (nb == 0)
 		nb = 1;
-    if (nb > (unsigned long long int)taille)
-		while (nb > (unsigned long long int)taille)
+    if (nb > taille)
+		while (nb > taille)
 		{
 			if (myvar->completion == 'l')
 				if ((myvar->type == 'x' || myvar->type == 'X')

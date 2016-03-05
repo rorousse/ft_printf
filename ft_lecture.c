@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 16:53:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/02 17:20:40 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 12:19:00 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int			ft_lecture(const char *restrict str, va_list *ap)
 		return (0);
 	ft_check_completion(&myvar, str);
 	ft_check_treatment(&myvar, str);
+	ft_extension(&myvar, str, ap);
 	ft_gestion_params(ap, &myvar);
-	ft_extension(&myvar, str);
 	if (myvar.data != NULL)
 		return (ft_printage(&myvar));
 	else if (myvar.unidata != NULL)

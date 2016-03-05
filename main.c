@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/04 11:24:47 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/05 13:52:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
 {
 
 	setlocale(LC_ALL, "en_US.UTF-8");
-	ft_printf("%S", L"ç");
+	ft_printf("{%3*d}\n", 0, 0);
+	printf("{%3*d}\n", 0, 0);
 	return (0);
 }
