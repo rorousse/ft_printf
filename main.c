@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 19:26:07 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/06 17:50:00 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 
 int main()
 {
-	double nb = 123456.123456789123456789;
-	unsigned long long int test = (unsigned long long int)nb;
-	nb = nb - test;
-	printf("%.30f\n",nb);
+	int *nb;
+	ft_printf("bonjour%n, mon nom est romain\n", nb);
+	ft_putnbr(*nb);
 	return (0);
 }
