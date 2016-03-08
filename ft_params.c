@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/03 18:31:43 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/08 12:48:15 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void		ft_gestion_params(va_list *ap, t_var *myvar)
 		ft_gestion_unsigned(ap, myvar);
 	else if (myvar->type == 'o' || myvar->type == 'O')
 		ft_gestion_octal(ap, myvar);
+	else if (myvar->type == 'f' || myvar->type == 'F')
+		ft_gestion_double(ap, myvar);
 	else
 	{
 		myvar->data = (char*)malloc(2 * sizeof(char));

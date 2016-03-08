@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_strjoin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 18:04:48 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/08 13:04:10 by rorousse         ###   ########.fr       */
+/*   Created: 2016/03/08 11:58:53 by rorousse          #+#    #+#             */
+/*   Updated: 2016/03/08 12:04:11 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <limits.h>
-#include "ft_printf.h"
-#include <locale.h>
-#include "libft/libft.h"
+#include "libft.h"
 
-int main()
+void	ft_free_strjoin(char *str, char *str2)
 {
-	ft_printf("{%f}{%F}\n", 1.42, 1.42);
-	printf("{%f}{%F}\n", 1.42, 1.42);
-	return (0);
+	char	*temp;
+
+	temp = ft_strdup(str);
+	free(str);
+	str = ft_strjoin(temp, str2);
+	free(temp);
 }
+	

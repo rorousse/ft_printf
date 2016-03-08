@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:21:39 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 16:05:47 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/08 11:52:13 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void					ft_uni_insert_str(int pos, wchar_t **dst,
 void					ft_uni_insert_end(wchar_t **dst, wchar_t *insertion);
 void					ft_uni_largeur(t_var *myvar);
 void					ft_uni_largeur_comp(t_var *myvar);
+void					ft_gestion_double(va_list *ap, t_var *myvar);
 
 #endif

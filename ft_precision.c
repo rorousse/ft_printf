@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 16:13:18 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/05 16:16:36 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/08 11:53:59 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ft_precision(t_var *myvar)
 	int		nb;
 
 	ft_init_precision(myvar, &taille, &nb);
-	if (nb >= 0 && myvar->type != '%' && myvar->type != 'c')
+	if (nb >= 0 && myvar->type != '%' && myvar->type != 'c' && myvar->type != 'f' && myvar->type != 'F')
 	{
 		if (nb == 0 && *(myvar->data) == '0')
 			myvar->data[0] = '\0';
