@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:15:12 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/09 18:09:30 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/09 18:09:14 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_printf(const char *restrict format, ...)
 		}
 		else if (*format == '{')
 		{
+			ft_putstr("gotcha\n");
 			if (coloration(format + 1) == 1)
 			{
 				while (*format != '}')

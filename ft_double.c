@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 11:36:16 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/08 15:21:06 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/09 19:25:41 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,21 @@
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-void	ft_gestion_double(va_list *ap, t_var *myvar)
+static void	roundup(double *decimale)
+{
+	double	temp;
+	int		entier;
+
+	temp = *decimale;
+	entier = (int)temp;
+	temp = temp - entier;
+	temp = (int)(temp * 10);
+	*decimale = (int)*decimale;
+	if (temp >= 6)
+		*decimale = *decimale + 1;
+}
+	
+void		ft_gestion_double(va_list *ap, t_var *myvar)
 {
 	double	nb;
 	int		entiere;
@@ -32,9 +46,10 @@ void	ft_gestion_double(va_list *ap, t_var *myvar)
 		entiere = 6;
 	while (entiere > 0)
 	{
-		decimale = decimale * 10;
+		decimale = decimale * (double)10;
 		entiere--;
 	}
+	roundup(&decimale);
 	temp = ft_itoa((long long int)decimale);
 	ft_free_strjoin(myvar->data, temp);
 	free(temp);
