@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:37:20 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/04 10:22:03 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/08 12:01:41 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ extern wchar_t		*ft_uni_strcpy(wchar_t *dst, wchar_t *src);
 extern wchar_t		*ft_uni_strcat(wchar_t *dst, wchar_t *src);
 extern wchar_t		*ft_uni_strjoin(wchar_t *s1, wchar_t *s2);
 extern int			ft_uni_size(wchar_t c);
+extern void			ft_free_strjoin(char *s1, char *s2);
 
 #endif

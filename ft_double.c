@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 11:36:16 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/09 19:25:41 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/10 16:35:52 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	roundup(double *decimale)
 	double	temp;
 	int		entier;
 
+	if (*decimale < 0)
+		*decimale = *decimale * (-1);
 	temp = *decimale;
 	entier = (int)temp;
 	temp = temp - entier;
@@ -31,12 +33,12 @@ static void	roundup(double *decimale)
 void		ft_gestion_double(va_list *ap, t_var *myvar)
 {
 	double	nb;
-	int		entiere;
+	long long int		entiere;
 	double	decimale;
 	char	*temp;
 
 	nb = va_arg(*ap, double);
-	entiere = (int)nb;
+	entiere = (long long int)nb;
 	decimale = nb - entiere;
 	temp = ft_itoa(entiere);
 	myvar->data = ft_strjoin(temp, ".");
@@ -51,7 +53,9 @@ void		ft_gestion_double(va_list *ap, t_var *myvar)
 	}
 	roundup(&decimale);
 	temp = ft_itoa((long long int)decimale);
-	ft_free_strjoin(myvar->data, temp);
+	ft_free_strjoin(&(myvar->data), temp);
 	free(temp);
+	if (myvar->data == NULL)
+		myvar->data = ft_strdup("(null)");
 }
 	
