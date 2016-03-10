@@ -6,14 +6,14 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:00:51 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/09 18:33:43 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/10 16:50:59 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-static int	 comparaison(char *temp)
+static int	comparaison(char *temp)
 {
 	if (ft_strcmp(temp, "noir") == 0)
 		write(1, "\033[30m", 5);
@@ -61,5 +61,3 @@ int			coloration(const char *restrict str)
 	free(temp);
 	return (i);
 }
-	
-	

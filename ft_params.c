@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:27:01 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/08 12:48:15 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/10 17:37:49 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static void	ft_gestion_unsigned(va_list *ap, t_var *myvar)
 	if (ft_strcmp(myvar->treatment, "l") == 0 || myvar->type == 'U')
 		myvar->data = unsigned_itoa_base(va_arg(*ap, long unsigned), 10);
 	else if (ft_strcmp(myvar->treatment, "z") == 0)
-        myvar->data = unsigned_itoa_base(va_arg(*ap, size_t), 10);
+		myvar->data = unsigned_itoa_base(va_arg(*ap, size_t), 10);
 	else if (ft_strcmp(myvar->treatment, "ll") == 0)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, long long unsigned), 10);
 	else if (ft_strcmp(myvar->treatment, "j") == 0)
 		myvar->data = unsigned_itoa_base(va_arg(*ap, uintmax_t), 10);
 	else if (ft_strcmp(myvar->treatment, "hh") == 0)
 	{
-        c = va_arg(*ap, unsigned int);
+		c = va_arg(*ap, unsigned int);
 		myvar->data = unsigned_itoa_base(c, 10);
 	}
 	else
@@ -60,32 +60,14 @@ static void	ft_gestion_unichar(va_list *ap, t_var *myvar)
 	}
 }
 
-void		ft_gestion_params(va_list *ap, t_var *myvar)
+static void	ft_gestion_params_suite(va_list *ap, t_var *myvar)
 {
-	if (myvar->type == 's')
-	{
-		if (ft_strcmp(myvar->treatment, "l") == 0)
-			myvar->unidata = ft_uni_strdup(va_arg(*ap, wchar_t*));
-		else
-			myvar->data = ft_strdup(va_arg(*ap, char*));
-	}
-	else if (myvar->type == 'S')
-		myvar->unidata = ft_uni_strdup(va_arg(*ap, wchar_t*)); 
-	else if (myvar->type == 'd' || myvar->type == 'i' || myvar->type == 'D')
-		ft_gestion_integer(ap, myvar);
-	else if (myvar->type == 'c')
-	{
-		if (ft_strcmp(myvar->treatment, "l") == 0)
-			ft_gestion_unichar(ap, myvar);
-		else
-			ft_gestion_char(ap, myvar);
-	}
-	else if (myvar->type == 'C')
+	if (myvar->type == 'C')
 		ft_gestion_unichar(ap, myvar);
 	else if (myvar->type == 'p')
 	{
 		myvar->data = unsigned_itoa_base(va_arg(*ap, unsigned long long int),
-		16);
+										16);
 		myvar->alternate = 1;
 	}
 	else if (ft_strchr("xX", myvar->type) != NULL)
@@ -102,6 +84,30 @@ void		ft_gestion_params(va_list *ap, t_var *myvar)
 		ft_bzero(myvar->data, 2);
 		myvar->data[0] = myvar->type;
 	}
+}
+
+void		ft_gestion_params(va_list *ap, t_var *myvar)
+{
+	if (myvar->type == 's')
+	{
+		if (ft_strcmp(myvar->treatment, "l") == 0)
+			myvar->unidata = ft_uni_strdup(va_arg(*ap, wchar_t*));
+		else
+			myvar->data = ft_strdup(va_arg(*ap, char*));
+	}
+	else if (myvar->type == 'S')
+		myvar->unidata = ft_uni_strdup(va_arg(*ap, wchar_t*));
+	else if (myvar->type == 'd' || myvar->type == 'i' || myvar->type == 'D')
+		ft_gestion_integer(ap, myvar);
+	else if (myvar->type == 'c')
+	{
+		if (ft_strcmp(myvar->treatment, "l") == 0)
+			ft_gestion_unichar(ap, myvar);
+		else
+			ft_gestion_char(ap, myvar);
+	}
+	else
+		ft_gestion_params_suite(ap, myvar);
 	if (myvar->data == NULL && myvar->unidata == NULL)
 		myvar->data = ft_strdup("(null)");
 }

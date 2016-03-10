@@ -6,7 +6,7 @@
 /*   By: rorousse <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 11:36:16 by rorousse          #+#    #+#             */
-/*   Updated: 2016/03/10 16:35:52 by rorousse         ###   ########.fr       */
+/*   Updated: 2016/03/10 16:53:09 by rorousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static void	roundup(double *decimale)
 	if (temp >= 6)
 		*decimale = *decimale + 1;
 }
-	
+
 void		ft_gestion_double(va_list *ap, t_var *myvar)
 {
-	double	nb;
-	long long int		entiere;
-	double	decimale;
-	char	*temp;
+	double			nb;
+	long long int	entiere;
+	double			decimale;
+	char			*temp;
 
 	nb = va_arg(*ap, double);
 	entiere = (long long int)nb;
@@ -58,4 +58,3 @@ void		ft_gestion_double(va_list *ap, t_var *myvar)
 	if (myvar->data == NULL)
 		myvar->data = ft_strdup("(null)");
 }
-	
